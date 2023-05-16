@@ -8,29 +8,29 @@
 
 #import "RNSVGImage.h"
 #import "RCTConvert+RNSVG.h"
-#import <React/RCTImageSource.h>
+#import "RCTImageSource.h"
 
-#if __has_include(<React/RCTImageLoader.h>)
+#if __has_include(<hippy/HippyImageLoader.h>)
 
-#import <React/RCTImageLoader.h>
+#import <hippy/HippyImageLoader.h>
 
 #else
 
-#import <React/RCTImageURLLoader.h>
-#import <React/RCTImageShadowView.h>
-#import <React/RCTImageView.h>
-#import <React/RCTImageLoaderProtocol.h>
+//#import <hippy/HippyImageURLLoader.h>
+//#import <hippy/HippyImageShadowView.h>
+#import <hippy/HippyImageView.h>
+//#import <hippy/HippyImageLoaderProtocol.h>
 
 #endif
 
-#import <React/RCTLog.h>
+#import <hippy/HippyLog.h>
 #import "RNSVGViewBox.h"
 
 @implementation RNSVGImage
 {
     CGImageRef _image;
     CGSize _imageSize;
-    RCTImageLoaderCancellationBlock _reloadImageCancellationBlock;
+//    RCTImageLoaderCancellationBlock _reloadImageCancellationBlock;
 }
 
 - (void)setSrc:(id)src
@@ -41,26 +41,27 @@
     _src = src;
     CGImageRelease(_image);
     _image = nil;
-    RCTImageSource *source = [RCTConvert RCTImageSource:src];
+    RCTImageSource *source = [HippyConvert RCTImageSource:src];
     if (source.size.width != 0 && source.size.height != 0) {
         _imageSize = source.size;
     } else {
         _imageSize = CGSizeMake(0, 0);
     }
 
-    RCTImageLoaderCancellationBlock previousCancellationBlock = _reloadImageCancellationBlock;
-    if (previousCancellationBlock) {
-        previousCancellationBlock();
-        _reloadImageCancellationBlock = nil;
-    }
-
-    _reloadImageCancellationBlock = [[self.bridge moduleForName:@"ImageLoader"] loadImageWithURLRequest:[RCTConvert NSURLRequest:src] callback:^(NSError *error, UIImage *image) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            self->_image = CGImageRetain(image.CGImage);
-            self->_imageSize = CGSizeMake(CGImageGetWidth(self->_image), CGImageGetHeight(self->_image));
-            [self invalidate];
-        });
-    }];
+    NSAssert(NO, @"RNSVGImage功能不可用，暂未适配Hippy");
+//    RCTImageLoaderCancellationBlock previousCancellationBlock = _reloadImageCancellationBlock;
+//    if (previousCancellationBlock) {
+//        previousCancellationBlock();
+//        _reloadImageCancellationBlock = nil;
+//    }
+//
+//    _reloadImageCancellationBlock = [[self.bridge moduleForName:@"ImageLoader"] loadImageWithURLRequest:[HippyConvert NSURLRequest:src] callback:^(NSError *error, UIImage *image) {
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            self->_image = CGImageRetain(image.CGImage);
+//            self->_imageSize = CGSizeMake(CGImageGetWidth(self->_image), CGImageGetHeight(self->_image));
+//            [self invalidate];
+//        });
+//    }];
 }
 
 - (void)setX:(RNSVGLength *)x

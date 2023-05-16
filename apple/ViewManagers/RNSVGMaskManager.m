@@ -11,27 +11,27 @@
 
 @implementation RNSVGMaskManager
 
-RCT_EXPORT_MODULE()
+HIPPY_EXPORT_MODULE()
 
 - (RNSVGMask *)node
 {
     return [RNSVGMask new];
 }
 
-RCT_EXPORT_VIEW_PROPERTY(x, RNSVGLength*)
-RCT_EXPORT_VIEW_PROPERTY(y, RNSVGLength*)
-RCT_EXPORT_VIEW_PROPERTY(maskheight, RNSVGLength*)
-RCT_EXPORT_VIEW_PROPERTY(maskwidth, RNSVGLength*)
-RCT_CUSTOM_VIEW_PROPERTY(height, id, RNSVGMask)
+HIPPY_EXPORT_VIEW_PROPERTY(x, RNSVGLength*)
+HIPPY_EXPORT_VIEW_PROPERTY(y, RNSVGLength*)
+HIPPY_EXPORT_VIEW_PROPERTY(maskheight, RNSVGLength*)
+HIPPY_EXPORT_VIEW_PROPERTY(maskwidth, RNSVGLength*)
+HIPPY_CUSTOM_VIEW_PROPERTY(height, id, RNSVGMask)
 {
-    view.maskheight = [RCTConvert RNSVGLength:json];
+    view.maskheight = [HippyConvert RNSVGLength:json];
 }
-RCT_CUSTOM_VIEW_PROPERTY(width, id, RNSVGMask)
+HIPPY_CUSTOM_VIEW_PROPERTY(width, id, RNSVGMask)
 {
-    view.maskwidth = [RCTConvert RNSVGLength:json];
+    view.maskwidth = [HippyConvert RNSVGLength:json];
 }
-RCT_EXPORT_VIEW_PROPERTY(maskUnits, RNSVGUnits)
-RCT_EXPORT_VIEW_PROPERTY(maskContentUnits, RNSVGUnits)
-RCT_EXPORT_VIEW_PROPERTY(maskTransform, CGAffineTransform)
+HIPPY_EXPORT_VIEW_PROPERTY(maskUnits, RNSVGUnits)
+HIPPY_EXPORT_VIEW_PROPERTY(maskContentUnits, RNSVGUnits)
+HIPPY_EXPORT_VIEW_PROPERTY(maskTransform, CGAffineTransform)
 
 @end

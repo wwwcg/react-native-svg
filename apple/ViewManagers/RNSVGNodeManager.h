@@ -7,9 +7,9 @@
  */
 
 #import "RNSVGNode.h"
-#import <React/RCTViewManager.h>
+#import <hippy/HippyViewManager.h>
 
-@interface RNSVGNodeManager : RCTViewManager
+@interface RNSVGNodeManager : HippyViewManager
 
 - (RNSVGNode *)node;
 

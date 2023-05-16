@@ -1,5 +1,5 @@
 #if TARGET_OS_OSX
-#import <React/RCTTextView.h>
+#import <hippy/HippyTextView.h>
 @interface RNSVGTopAlignedLabel : NSTextView
 
 @property NSAttributedString *attributedText;

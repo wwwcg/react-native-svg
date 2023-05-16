@@ -8,7 +8,7 @@
 
 #import "RNSVGText.h"
 #import "RNSVGTextPath.h"
-#import <React/RCTFont.h>
+#import <hippy/HippyFont.h>
 #import <CoreText/CoreText.h>
 #import "RNSVGGlyphContext.h"
 #import "RNSVGTextProperties.h"

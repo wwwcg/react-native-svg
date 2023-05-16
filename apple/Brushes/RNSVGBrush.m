@@ -7,7 +7,7 @@
  */
 
 #import "RNSVGBrush.h"
-#import <React/RCTDefines.h>
+#import <hippy/HippyDefines.h>
 
 @implementation RNSVGBrush
 

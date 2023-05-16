@@ -9,7 +9,7 @@
 #import "RNSVGPainterBrush.h"
 #import "RNSVGPainter.h"
 #import "RCTConvert+RNSVG.h"
-#import <React/RCTLog.h>
+#import <hippy/HippyLog.h>
 
 @implementation RNSVGPainterBrush
 
@@ -17,7 +17,7 @@
 {
     if ((self = [super initWithArray:array])) {
         if (array.count != 2) {
-            RCTLogError(@"-[%@ %@] expects 2 elements, received %@",
+            HippyLogError(@"-[%@ %@] expects 2 elements, received %@",
                         self.class, NSStringFromSelector(_cmd), array);
             return nil;
         }

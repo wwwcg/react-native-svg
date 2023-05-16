@@ -13,13 +13,13 @@
 
 @implementation RNSVGTSpanManager
 
-RCT_EXPORT_MODULE()
+HIPPY_EXPORT_MODULE()
 
 - (RNSVGRenderable *)node
 {
   return [RNSVGTSpan new];
 }
 
-RCT_EXPORT_VIEW_PROPERTY(content, NSString)
+HIPPY_EXPORT_VIEW_PROPERTY(content, NSString)
 
 @end

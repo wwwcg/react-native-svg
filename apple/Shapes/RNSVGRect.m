@@ -7,7 +7,7 @@
  */
 
 #import "RNSVGRect.h"
-#import <React/RCTLog.h>
+#import <hippy/HippyLog.h>
 
 @implementation RNSVGRect
 

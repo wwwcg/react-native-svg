@@ -9,7 +9,7 @@
 #import "RNSVGSvgView.h"
 #import "RNSVGViewBox.h"
 #import "RNSVGNode.h"
-#import <React/RCTLog.h>
+#import <hippy/HippyLog.h>
 
 @implementation RNSVGSvgView
 {
@@ -35,22 +35,22 @@
     return self;
 }
 
-- (void)insertReactSubview:(RNSVGView *)subview atIndex:(NSInteger)atIndex
+- (void)insertHippySubview:(RNSVGView *)subview atIndex:(NSInteger)atIndex
 {
-    [super insertReactSubview:subview atIndex:atIndex];
+    [super insertHippySubview:subview atIndex:atIndex];
     [self insertSubview:subview atIndex:atIndex];
     [self invalidate];
 }
 
-- (void)removeReactSubview:(RNSVGView *)subview
+- (void)removeHippySubview:(RNSVGView *)subview
 {
-    [super removeReactSubview:subview];
+    [super removeHippySubview:subview];
     [self invalidate];
 }
 
 - (void)didUpdateReactSubviews
 {
-    // Do nothing, as subviews are inserted by insertReactSubview:
+    // Do nothing, as subviews are inserted by insertHippySubview:
 }
 
 - (void)clearChildCache

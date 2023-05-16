@@ -6,8 +6,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-#import <React/UIView+React.h>
-#import <React/RCTPointerEvents.h>
+#import <hippy/UIView+Hippy.h>
+#import <hippy/HippyPointerEvents.h>
 #import "RNSVGCGFCRule.h"
 #import "RNSVGSvgView.h"
 @class RNSVGGroup;
@@ -40,7 +40,7 @@ extern CGFloat const RNSVG_DEFAULT_FONT_SIZE;
 /**
  * Used to control how touch events are processed.
  */
-@property (nonatomic, assign) RCTPointerEvents pointerEvents;
+@property (nonatomic, assign) HippyPointerEvents pointerEvents;
 @property (nonatomic, assign) BOOL responsible;
 
 @property (nonatomic, assign) CGAffineTransform ctm;
@@ -61,7 +61,7 @@ extern CGFloat const RNSVG_DEFAULT_FONT_SIZE;
 @property (nonatomic, assign) CGRect fillBounds;
 @property (nonatomic, assign) CGRect strokeBounds;
 @property (nonatomic, assign) CGRect markerBounds;
-@property (nonatomic, copy) RCTDirectEventBlock onLayout;
+@property (nonatomic, copy) HippyDirectEventBlock onLayout;
 
 
 /**

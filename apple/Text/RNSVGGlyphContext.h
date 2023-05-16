@@ -1,4 +1,4 @@
-#import <React/UIView+React.h>
+#import <hippy/UIView+Hippy.h>
 #import <CoreText/CoreText.h>
 #import "RNSVGFontData.h"
 

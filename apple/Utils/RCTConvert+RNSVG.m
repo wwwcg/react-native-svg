@@ -11,25 +11,25 @@
 #import "RNSVGPainterBrush.h"
 #import "RNSVGSolidColorBrush.h"
 #import "RNSVGContextBrush.h"
-#import <React/RCTLog.h>
-#import <React/RCTFont.h>
+#import <hippy/HippyLog.h>
+#import <hippy/HippyFont.h>
 
 NSRegularExpression *RNSVGDigitRegEx;
 
-@implementation RCTConvert (RNSVG)
+@implementation HippyConvert (RNSVG)
 
-RCT_ENUM_CONVERTER(RNSVGCGFCRule, (@{
+HIPPY_ENUM_CONVERTER(RNSVGCGFCRule, (@{
                                      @"evenodd": @(kRNSVGCGFCRuleEvenodd),
                                      @"nonzero": @(kRNSVGCGFCRuleNonzero),
                                      }), kRNSVGCGFCRuleNonzero, intValue)
 
-RCT_ENUM_CONVERTER(RNSVGVBMOS, (@{
+HIPPY_ENUM_CONVERTER(RNSVGVBMOS, (@{
                                   @"meet": @(kRNSVGVBMOSMeet),
                                   @"slice": @(kRNSVGVBMOSSlice),
                                   @"none": @(kRNSVGVBMOSNone)
                                   }), kRNSVGVBMOSMeet, intValue)
 
-RCT_ENUM_CONVERTER(RNSVGUnits, (@{
+HIPPY_ENUM_CONVERTER(RNSVGUnits, (@{
                                   @"objectBoundingBox": @(kRNSVGUnitsObjectBoundingBox),
                                   @"userSpaceOnUse": @(kRNSVGUnitsUserSpaceOnUse),
                                   }), kRNSVGUnitsObjectBoundingBox, intValue)
@@ -74,7 +74,7 @@ RCT_ENUM_CONVERTER(RNSVGUnits, (@{
         case 4: // context-stroke
             return [[RNSVGContextBrush alloc] initStroke];
         default:
-            RCTLogError(@"Unknown brush type: %zd", (unsigned long)type);
+            HippyLogError(@"Unknown brush type: %zd", (unsigned long)type);
             return nil;
     }
 }
@@ -121,7 +121,7 @@ RCT_ENUM_CONVERTER(RNSVGUnits, (@{
 {
     NSArray *arr = [self NSArray:json];
     if (arr.count < offset + 4) {
-        RCTLogError(@"Too few elements in array (expected at least %zd): %@", (ssize_t)(4 + offset), arr);
+        HippyLogError(@"Too few elements in array (expected at least %zd): %@", (ssize_t)(4 + offset), arr);
         return CGRectZero;
     }
     return (CGRect){
@@ -137,7 +137,7 @@ RCT_ENUM_CONVERTER(RNSVGUnits, (@{
         return [self RNSVGColor:[arr objectAtIndex:offset]];
     }
     if (arr.count < offset + 4) {
-        RCTLogError(@"Too few elements in array (expected at least %zd): %@", (ssize_t)(4 + offset), arr);
+        HippyLogError(@"Too few elements in array (expected at least %zd): %@", (ssize_t)(4 + offset), arr);
         return nil;
     }
     return [self RNSVGColor:[arr subarrayWithRange:(NSRange){offset, 4}]];

@@ -8,14 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
-#import <React/RCTBridge.h>
+#import <hippy/HippyBridge.h>
 #import "RNSVGRenderable.h"
 #import "RNSVGVBMOS.h"
 #import "RNSVGLength.h"
 
 @interface RNSVGImage : RNSVGRenderable
 
-@property (nonatomic, weak) RCTBridge *bridge;
+@property (nonatomic, weak) HippyBridge *bridge;
 @property (nonatomic, assign) id src;
 @property (nonatomic, strong) RNSVGLength* x;
 @property (nonatomic, strong) RNSVGLength* y;

@@ -6,41 +6,41 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-#import <React/RCTBridge.h>
-#import <React/RCTUIManager.h>
-#import <React/RCTUIManagerUtils.h>
+#import <hippy/HippyBridge.h>
+#import <hippy/HippyUIManager.h>
+//#import <hippy/HippyUIManagerUtils.h>
 #import "RNSVGSvgViewManager.h"
 #import "RNSVGSvgView.h"
 
 @implementation RNSVGSvgViewManager
 
-RCT_EXPORT_MODULE()
+HIPPY_EXPORT_MODULE()
 
 - (RNSVGView *)view
 {
     return [RNSVGSvgView new];
 }
 
-RCT_EXPORT_VIEW_PROPERTY(bbWidth, RNSVGLength*)
-RCT_EXPORT_VIEW_PROPERTY(bbHeight, RNSVGLength*)
-RCT_EXPORT_VIEW_PROPERTY(minX, CGFloat)
-RCT_EXPORT_VIEW_PROPERTY(minY, CGFloat)
-RCT_EXPORT_VIEW_PROPERTY(vbWidth, CGFloat)
-RCT_EXPORT_VIEW_PROPERTY(vbHeight, CGFloat)
-RCT_EXPORT_VIEW_PROPERTY(align, NSString)
-RCT_EXPORT_VIEW_PROPERTY(meetOrSlice, RNSVGVBMOS)
-RCT_CUSTOM_VIEW_PROPERTY(tintColor, id, RNSVGSvgView)
+HIPPY_EXPORT_VIEW_PROPERTY(bbWidth, RNSVGLength*)
+HIPPY_EXPORT_VIEW_PROPERTY(bbHeight, RNSVGLength*)
+HIPPY_EXPORT_VIEW_PROPERTY(minX, CGFloat)
+HIPPY_EXPORT_VIEW_PROPERTY(minY, CGFloat)
+HIPPY_EXPORT_VIEW_PROPERTY(vbWidth, CGFloat)
+HIPPY_EXPORT_VIEW_PROPERTY(vbHeight, CGFloat)
+HIPPY_EXPORT_VIEW_PROPERTY(align, NSString)
+HIPPY_EXPORT_VIEW_PROPERTY(meetOrSlice, RNSVGVBMOS)
+HIPPY_CUSTOM_VIEW_PROPERTY(tintColor, id, RNSVGSvgView)
 {
-    view.tintColor = [RCTConvert UIColor:json];
+    view.tintColor = [HippyConvert UIColor:json];
 }
-RCT_CUSTOM_VIEW_PROPERTY(color, id, RNSVGSvgView)
+HIPPY_CUSTOM_VIEW_PROPERTY(color, id, RNSVGSvgView)
 {
-    view.tintColor = [RCTConvert UIColor:json];
+    view.tintColor = [HippyConvert UIColor:json];
 }
 
 
-- (void)toDataURL:(nonnull NSNumber *)reactTag options:(NSDictionary *)options callback:(RCTResponseSenderBlock)callback attempt:(int)attempt {
-    [self.bridge.uiManager addUIBlock:^(RCTUIManager *uiManager, NSDictionary<NSNumber *,RNSVGView *> *viewRegistry) {
+- (void)toDataURL:(nonnull NSNumber *)reactTag options:(NSDictionary *)options callback:(HippyResponseSenderBlock)callback attempt:(int)attempt {
+    [self.bridge.uiManager addUIBlock:^(HippyUIManager *uiManager, NSDictionary<NSNumber *,RNSVGView *> *viewRegistry) {
         __kindof RNSVGView *view = viewRegistry[reactTag];
         NSString * b64;
         if ([view isKindOfClass:[RNSVGSvgView class]]) {
@@ -52,7 +52,7 @@ RCT_CUSTOM_VIEW_PROPERTY(color, id, RNSVGSvgView)
                 id height = [options objectForKey:@"height"];
                 if (![width isKindOfClass:NSNumber.class] ||
                     ![height isKindOfClass:NSNumber.class]) {
-                    RCTLogError(@"Invalid width or height given to toDataURL");
+                    HippyLogError(@"Invalid width or height given to toDataURL");
                     return;
                 }
                 NSNumber* w = width;
@@ -64,7 +64,7 @@ RCT_CUSTOM_VIEW_PROPERTY(color, id, RNSVGSvgView)
                 b64 = [svg getDataURLwithBounds:bounds];
             }
         } else {
-            RCTLogError(@"Invalid svg returned frin registry, expecting RNSVGSvgView, got: %@", view);
+            HippyLogError(@"Invalid svg returned frin registry, expecting RNSVGSvgView, got: %@", view);
             return;
         }
         if (b64) {
@@ -74,14 +74,14 @@ RCT_CUSTOM_VIEW_PROPERTY(color, id, RNSVGSvgView)
                 [self toDataURL:reactTag options:options callback:callback attempt:(attempt + 1)];
             };
 
-            RCTExecuteOnUIManagerQueue(retryBlock);
+            [uiManager executeBlockOnUIManagerQueue:retryBlock];
         } else {
             callback(@[]);
         }
     }];
 }
 
-RCT_EXPORT_METHOD(toDataURL:(nonnull NSNumber *)reactTag options:(NSDictionary *)options callback:(RCTResponseSenderBlock)callback)
+HIPPY_EXPORT_METHOD(toDataURL:(nonnull NSNumber *)reactTag options:(NSDictionary *)options callback:(HippyResponseSenderBlock)callback)
 {
     [self toDataURL:reactTag options:options callback:callback attempt:0];
 }

@@ -12,7 +12,7 @@
 
 #else // TARGET_OS_OSX [
 
-#import <React/RCTUIKit.h>
+#import <hippy/HippyUIKit.h>
 
 #define RNSVGColor NSColor
 #define RNSVGPlatformView NSView

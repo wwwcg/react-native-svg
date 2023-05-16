@@ -11,31 +11,31 @@
 
 @implementation RNSVGUseManager
 
-RCT_EXPORT_MODULE()
+HIPPY_EXPORT_MODULE()
 
 - (RNSVGNode *)node
 {
   return [RNSVGUse new];
 }
 
-RCT_EXPORT_VIEW_PROPERTY(href, NSString)
-RCT_CUSTOM_VIEW_PROPERTY(x, id, RNSVGUse)
+HIPPY_EXPORT_VIEW_PROPERTY(href, NSString)
+HIPPY_CUSTOM_VIEW_PROPERTY(x, id, RNSVGUse)
 {
-    view.x = [RCTConvert RNSVGLength:json];
+    view.x = [HippyConvert RNSVGLength:json];
 }
-RCT_CUSTOM_VIEW_PROPERTY(y, id, RNSVGUse)
+HIPPY_CUSTOM_VIEW_PROPERTY(y, id, RNSVGUse)
 {
-    view.y = [RCTConvert RNSVGLength:json];
+    view.y = [HippyConvert RNSVGLength:json];
 }
-RCT_EXPORT_VIEW_PROPERTY(useheight, RNSVGLength*)
-RCT_EXPORT_VIEW_PROPERTY(usewidth, RNSVGLength*)
-RCT_CUSTOM_VIEW_PROPERTY(height, id, RNSVGUse)
+HIPPY_EXPORT_VIEW_PROPERTY(useheight, RNSVGLength*)
+HIPPY_EXPORT_VIEW_PROPERTY(usewidth, RNSVGLength*)
+HIPPY_CUSTOM_VIEW_PROPERTY(height, id, RNSVGUse)
 {
-    view.useheight = [RCTConvert RNSVGLength:json];
+    view.useheight = [HippyConvert RNSVGLength:json];
 }
-RCT_CUSTOM_VIEW_PROPERTY(width, id, RNSVGUse)
+HIPPY_CUSTOM_VIEW_PROPERTY(width, id, RNSVGUse)
 {
-    view.usewidth = [RCTConvert RNSVGLength:json];
+    view.usewidth = [HippyConvert RNSVGLength:json];
 }
 
 @end

@@ -13,27 +13,27 @@
 
 @implementation RNSVGRectManager
 
-RCT_EXPORT_MODULE()
+HIPPY_EXPORT_MODULE()
 
 - (RNSVGRenderable *)node
 {
   return [RNSVGRect new];
 }
 
-RCT_EXPORT_VIEW_PROPERTY(x, RNSVGLength*)
-RCT_EXPORT_VIEW_PROPERTY(y, RNSVGLength*)
-RCT_EXPORT_VIEW_PROPERTY(rectheight, RNSVGLength*)
-RCT_EXPORT_VIEW_PROPERTY(rectwidth, RNSVGLength*)
-RCT_CUSTOM_VIEW_PROPERTY(height, id, RNSVGRect)
+HIPPY_EXPORT_VIEW_PROPERTY(x, RNSVGLength*)
+HIPPY_EXPORT_VIEW_PROPERTY(y, RNSVGLength*)
+HIPPY_EXPORT_VIEW_PROPERTY(rectheight, RNSVGLength*)
+HIPPY_EXPORT_VIEW_PROPERTY(rectwidth, RNSVGLength*)
+HIPPY_CUSTOM_VIEW_PROPERTY(height, id, RNSVGRect)
 {
-    view.rectheight = [RCTConvert RNSVGLength:json];
+    view.rectheight = [HippyConvert RNSVGLength:json];
 }
 
-RCT_CUSTOM_VIEW_PROPERTY(width, id, RNSVGRect)
+HIPPY_CUSTOM_VIEW_PROPERTY(width, id, RNSVGRect)
 {
-    view.rectwidth = [RCTConvert RNSVGLength:json];
+    view.rectwidth = [HippyConvert RNSVGLength:json];
 }
-RCT_EXPORT_VIEW_PROPERTY(rx, RNSVGLength*)
-RCT_EXPORT_VIEW_PROPERTY(ry, RNSVGLength*)
+HIPPY_EXPORT_VIEW_PROPERTY(rx, RNSVGLength*)
+HIPPY_EXPORT_VIEW_PROPERTY(ry, RNSVGLength*)
 
 @end

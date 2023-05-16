@@ -1,5 +1,5 @@
 #import "RNSVGGlyphContext.h"
-#import <React/RCTFont.h>
+#import <hippy/HippyFont.h>
 #import "RNSVGNode.h"
 #import "RNSVGPropHelper.h"
 #import "RNSVGFontData.h"
@@ -117,7 +117,7 @@
     NSString *fontFamily = topFont_->fontFamily;
     NSString *fontStyle = RNSVGFontStyleStrings[topFont_->fontStyle];
     NSString *fontWeight = RNSVGFontWeightStrings[topFont_->fontWeight];
-    UIFont *font = [RCTFont updateFont:nil
+    UIFont *font = [HippyFont updateFont:nil
                             withFamily:[fontFamily isEqualToString:@""] ? nil : fontFamily
                                   size:@(isnan(size) ? 0 : size)
                                 weight:fontWeight

@@ -57,8 +57,8 @@
     "tsc": "tsc --noEmit"
   },
   "peerDependencies": {
-    "react": "*",
-    "react-native": ">=0.50.0"
+    "react": "*"
+    
   },
   "dependencies": {
     "css-select": "^5.1.0",

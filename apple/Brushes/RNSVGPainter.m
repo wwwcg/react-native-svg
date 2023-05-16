@@ -29,7 +29,7 @@
     return self;
 }
 
-RCT_NOT_IMPLEMENTED(- (instancetype)init)
+HIPPY_NOT_IMPLEMENTED(- (instancetype)init)
 
 - (void)setUnits:(RNSVGUnits)unit
 {
@@ -193,10 +193,10 @@ void PatternFunction(void* info, CGContextRef context)
 - (void)paintLinearGradient:(CGContextRef)context bounds:(CGRect)bounds
 {
     if ([_colors count] == 0) {
-        RCTLogWarn(@"No stops in gradient");
+        HippyLogWarn(@"No stops in gradient");
         return;
     }
-    CGGradientRef gradient = CGGradientRetain([RCTConvert RNSVGCGGradient:_colors]);
+    CGGradientRef gradient = CGGradientRetain([HippyConvert RNSVGCGGradient:_colors]);
     CGGradientDrawingOptions extendOptions = kCGGradientDrawsBeforeStartLocation | kCGGradientDrawsAfterEndLocation;
 
     CGRect rect = [self getPaintRect:context bounds:bounds];
@@ -218,10 +218,10 @@ void PatternFunction(void* info, CGContextRef context)
 - (void)paintRadialGradient:(CGContextRef)context bounds:(CGRect)bounds
 {
     if ([_colors count] == 0) {
-        RCTLogWarn(@"No stops in gradient");
+        HippyLogWarn(@"No stops in gradient");
         return;
     }
-    CGGradientRef gradient = CGGradientRetain([RCTConvert RNSVGCGGradient:_colors]);
+    CGGradientRef gradient = CGGradientRetain([HippyConvert RNSVGCGGradient:_colors]);
     CGGradientDrawingOptions extendOptions = kCGGradientDrawsBeforeStartLocation | kCGGradientDrawsAfterEndLocation;
 
     CGRect rect = [self getPaintRect:context bounds:bounds];

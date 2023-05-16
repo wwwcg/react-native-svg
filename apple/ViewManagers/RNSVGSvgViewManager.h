@@ -6,8 +6,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-#import <React/RCTViewManager.h>
+#import <hippy/HippyViewManager.h>
 
-@interface RNSVGSvgViewManager : RCTViewManager
+@interface RNSVGSvgViewManager : HippyViewManager
 
 @end

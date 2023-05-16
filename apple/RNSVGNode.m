@@ -45,22 +45,22 @@ CGFloat const RNSVG_DEFAULT_FONT_SIZE = 12;
     return self;
 }
 
-- (void)insertReactSubview:(RNSVGView *)subview atIndex:(NSInteger)atIndex
+- (void)insertHippySubview:(RNSVGView *)subview atIndex:(NSInteger)atIndex
 {
-    [super insertReactSubview:subview atIndex:atIndex];
+    [super insertHippySubview:subview atIndex:atIndex];
     [self insertSubview:subview atIndex:atIndex];
     [self invalidate];
 }
 
-- (void)removeReactSubview:(RNSVGView *)subview
+- (void)removeHippySubview:(RNSVGView *)subview
 {
-    [super removeReactSubview:subview];
+    [super removeHippySubview:subview];
     [self invalidate];
 }
 
 - (void)didUpdateReactSubviews
 {
-    // Do nothing, as subviews are inserted by insertReactSubview:
+    // Do nothing, as subviews are inserted by insertHippySubview:
 }
 
 - (void)invalidate
@@ -164,11 +164,11 @@ CGFloat const RNSVG_DEFAULT_FONT_SIZE = 12;
     self.backgroundColor = inheritedBackgroundColor;
 }
 
-- (void)setPointerEvents:(RCTPointerEvents)pointerEvents
+- (void)setPointerEvents:(HippyPointerEvents)pointerEvents
 {
   _pointerEvents = pointerEvents;
-  self.userInteractionEnabled = (pointerEvents != RCTPointerEventsNone);
-  if (pointerEvents == RCTPointerEventsBoxNone) {
+  self.userInteractionEnabled = (pointerEvents != HippyPointerEventsNone);
+  if (pointerEvents == HippyPointerEventsBoxNone) {
 #if TARGET_OS_OSX
     self.accessibilityModal = NO;
 #else
@@ -386,7 +386,7 @@ CGFloat const RNSVG_DEFAULT_FONT_SIZE = 12;
     } else if ([parent isKindOfClass:[RNSVGNode class]]) {
         _svgView = ((RNSVGNode *)parent).svgView;
     } else {
-        RCTLogError(@"RNSVG: %@ should be descendant of a SvgViewShadow.", NSStringFromClass(self.class));
+        HippyLogError(@"RNSVG: %@ should be descendant of a SvgViewShadow.", NSStringFromClass(self.class));
     }
 
     return _svgView;

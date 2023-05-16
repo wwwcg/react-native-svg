@@ -11,24 +11,24 @@
 
 @implementation RNSVGForeignObjectManager
 
-RCT_EXPORT_MODULE()
+HIPPY_EXPORT_MODULE()
 
 - (RNSVGForeignObject *)node
 {
     return [RNSVGForeignObject new];
 }
 
-RCT_EXPORT_VIEW_PROPERTY(x, RNSVGLength*)
-RCT_EXPORT_VIEW_PROPERTY(y, RNSVGLength*)
-RCT_EXPORT_VIEW_PROPERTY(foreignObjectheight, RNSVGLength*)
-RCT_EXPORT_VIEW_PROPERTY(foreignObjectwidth, RNSVGLength*)
-RCT_CUSTOM_VIEW_PROPERTY(height, id, RNSVGForeignObject)
+HIPPY_EXPORT_VIEW_PROPERTY(x, RNSVGLength*)
+HIPPY_EXPORT_VIEW_PROPERTY(y, RNSVGLength*)
+HIPPY_EXPORT_VIEW_PROPERTY(foreignObjectheight, RNSVGLength*)
+HIPPY_EXPORT_VIEW_PROPERTY(foreignObjectwidth, RNSVGLength*)
+HIPPY_CUSTOM_VIEW_PROPERTY(height, id, RNSVGForeignObject)
 {
-    view.foreignObjectheight = [RCTConvert RNSVGLength:json];
+    view.foreignObjectheight = [HippyConvert RNSVGLength:json];
 }
-RCT_CUSTOM_VIEW_PROPERTY(width, id, RNSVGForeignObject)
+HIPPY_CUSTOM_VIEW_PROPERTY(width, id, RNSVGForeignObject)
 {
-    view.foreignObjectwidth = [RCTConvert RNSVGLength:json];
+    view.foreignObjectwidth = [HippyConvert RNSVGLength:json];
 }
 
 @end

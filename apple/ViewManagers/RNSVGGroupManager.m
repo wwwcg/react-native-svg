@@ -12,16 +12,16 @@
 
 @implementation RNSVGGroupManager
 
-RCT_EXPORT_MODULE()
+HIPPY_EXPORT_MODULE()
 
 - (RNSVGNode *)node
 {
   return [RNSVGGroup new];
 }
 
-RCT_EXPORT_VIEW_PROPERTY(font, NSDictionary)
+HIPPY_EXPORT_VIEW_PROPERTY(font, NSDictionary)
 
-RCT_CUSTOM_VIEW_PROPERTY(fontSize, id, RNSVGGroup)
+HIPPY_CUSTOM_VIEW_PROPERTY(fontSize, id, RNSVGGroup)
 {
     if ([json isKindOfClass:[NSString class]]) {
         NSString *stringValue = (NSString *)json;
@@ -33,7 +33,7 @@ RCT_CUSTOM_VIEW_PROPERTY(fontSize, id, RNSVGGroup)
     }
 }
 
-RCT_CUSTOM_VIEW_PROPERTY(fontWeight, id, RNSVGGroup)
+HIPPY_CUSTOM_VIEW_PROPERTY(fontWeight, id, RNSVGGroup)
 {
     if ([json isKindOfClass:[NSString class]]) {
         NSString *stringValue = (NSString *)json;

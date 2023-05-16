@@ -11,7 +11,7 @@
 #import "RNSVGNode.h"
 
 #import "RCTConvert+RNSVG.h"
-#import <React/RCTLog.h>
+#import <hippy/HippyLog.h>
 
 @implementation RNSVGContextBrush
 {

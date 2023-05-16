@@ -10,7 +10,7 @@
 #import "RNSVGUIKit.h"
 
 #import "RCTConvert+RNSVG.h"
-#import <React/RCTLog.h>
+#import <hippy/HippyLog.h>
 
 @implementation RNSVGSolidColorBrush
 {
@@ -20,7 +20,7 @@
 - (instancetype)initWithArray:(NSArray<RNSVGLength *> *)array
 {
     if ((self = [super initWithArray:array])) {
-        _color = [RCTConvert RNSVGColor:array offset:1];
+        _color = [HippyConvert RNSVGColor:array offset:1];
     }
     return self;
 }
@@ -28,7 +28,7 @@
 - (instancetype)initWithNumber:(NSNumber *)number
 {
     if ((self = [super init])) {
-        _color = [RCTConvert RNSVGColor:number];
+        _color = [HippyConvert RNSVGColor:number];
     }
     return self;
 }

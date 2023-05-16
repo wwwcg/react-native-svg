@@ -7,7 +7,7 @@
  */
 #import "RNSVGUse.h"
 #import "RNSVGSymbol.h"
-#import <React/RCTLog.h>
+#import <hippy/HippyLog.h>
 
 @implementation RNSVGUse
 
@@ -88,7 +88,7 @@
         [self endTransparencyLayer:context];
     } else if (self.href) {
         // TODO: calling yellow box here
-        RCTLogWarn(@"`Use` element expected a pre-defined svg template as `href` prop, template named: %@ is not defined.", self.href);
+        HippyLogWarn(@"`Use` element expected a pre-defined svg template as `href` prop, template named: %@ is not defined.", self.href);
         return;
     } else {
         return;

@@ -9,7 +9,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import <CoreText/CoreText.h>
 #import "RCTConvert+RNSVG.h"
-#import <React/RCTConvert.h>
+#import <hippy/HippyConvert.h>
 #import "RNSVGCGFCRule.h"
 #import "RNSVGVBMOS.h"
 #import "RNSVGUnits.h"
@@ -18,7 +18,7 @@
 
 @class RNSVGBrush;
 
-@interface RCTConvert (RNSVG)
+@interface HippyConvert (RNSVG)
 
 + (RNSVGLength*)RNSVGLength:(id)json;
 + (NSArray<RNSVGLength *>*)RNSVGLengthArray:(id)json;

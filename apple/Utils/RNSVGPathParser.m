@@ -7,7 +7,7 @@
  */
 
 #import "RNSVGPathParser.h"
-#import <React/RCTLog.h>
+#import <hippy/HippyLog.h>
 #import <math.h>
 #import "RNSVGBezierElement.h"
 
@@ -56,7 +56,7 @@
 
         if (!has_prev_cmd && first_char != 'M' && first_char != 'm') {
             // The first segment must be a MoveTo.
-            RCTLogError(@"UnexpectedData: %@", s);
+            HippyLogError(@"UnexpectedData: %@", s);
             CGPathRelease(path);
             return nil;
         }
@@ -71,7 +71,7 @@
         } else if ([self is_number_start:first_char] && has_prev_cmd) {
             if (prev_cmd == 'Z' || prev_cmd == 'z') {
                 // ClosePath cannot be followed by a number.
-                RCTLogError(@"UnexpectedData: %@", s);
+                HippyLogError(@"UnexpectedData: %@", s);
                 CGPathRelease(path);
                 return nil;
             }
@@ -91,7 +91,7 @@
                 cmd = prev_cmd;
             }
         } else {
-            RCTLogError(@"UnexpectedData: %@", s);
+            HippyLogError(@"UnexpectedData: %@", s);
             CGPathRelease(path);
             return nil;
         }
@@ -176,7 +176,7 @@
                 break;
             }
             default: {
-                RCTLogError(@"UnexpectedData: %@", s);
+                HippyLogError(@"UnexpectedData: %@", s);
                 CGPathRelease(path);
                 return nil;
             }
@@ -497,7 +497,7 @@
             break;
         }
         default:
-            RCTLogError(@"UnexpectedData: %@", s);
+            HippyLogError(@"UnexpectedData: %@", s);
     }
 
     return c == '1';
@@ -505,7 +505,7 @@
 
 - (float)parse_list_number {
     if (i == l) {
-        RCTLogError(@"UnexpectedEnd: %@", s);
+        HippyLogError(@"UnexpectedEnd: %@", s);
     }
 
     float n = [self parse_number];
@@ -520,7 +520,7 @@
     [self skip_spaces];
 
     if (i == l) {
-        RCTLogError(@"InvalidNumber: %@", s);
+        HippyLogError(@"InvalidNumber: %@", s);
     }
 
     NSUInteger start = i;
@@ -540,7 +540,7 @@
             c = [s characterAtIndex:i];
         }
     } else if (c != '.') {
-        RCTLogError(@"InvalidNumber: %@", s);
+        HippyLogError(@"InvalidNumber: %@", s);
     }
 
     // Consume fraction.
@@ -565,7 +565,7 @@
             } else if (c >= '0' && c <= '9') {
                 [self skip_digits];
             } else {
-                RCTLogError(@"InvalidNumber: %@", s);
+                HippyLogError(@"InvalidNumber: %@", s);
             }
         }
     }
@@ -575,7 +575,7 @@
 
     // inf, nan, etc. are an error.
     if (!isfinite(n)) {
-        RCTLogError(@"InvalidNumber: %@", s);
+        HippyLogError(@"InvalidNumber: %@", s);
     }
 
     return n;

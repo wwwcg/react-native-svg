@@ -13,13 +13,13 @@
 
 @implementation RNSVGPathManager
 
-RCT_EXPORT_MODULE()
+HIPPY_EXPORT_MODULE()
 
 - (RNSVGRenderable *)node
 {
   return [RNSVGPath new];
 }
 
-RCT_EXPORT_VIEW_PROPERTY(d, RNSVGCGPath)
+HIPPY_EXPORT_VIEW_PROPERTY(d, RNSVGCGPath)
 
 @end
