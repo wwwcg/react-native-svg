@@ -11,7 +11,7 @@
 
 @implementation RNSVGPatternManager
 
-HIPPY_EXPORT_MODULE()
+HIPPY_EXPORT_MODULE(SVGPattern)
 
 - (RNSVGPattern *)node
 {

@@ -11,7 +11,7 @@
 
 @implementation RNSVGForeignObjectManager
 
-HIPPY_EXPORT_MODULE()
+HIPPY_EXPORT_MODULE(ForeignObject)
 
 - (RNSVGForeignObject *)node
 {

@@ -13,7 +13,7 @@
 
 @implementation RNSVGLineManager
 
-HIPPY_EXPORT_MODULE()
+HIPPY_EXPORT_MODULE(Line)
 
 - (RNSVGRenderable *)node
 {

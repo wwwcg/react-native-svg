@@ -247,8 +247,30 @@
 
 - (void)pushGlyphContext
 {
+    NSDictionary *fonts = self.font;
+    // 说明：兼容hippy-react-svg前端的简略写法
+    // 原RNSVG是将部分文字样式合并到font字段一起设置，因此其iOS SDK无需增加该属性。
+    // --- 曲线救国方案：在pushGlyphContext前将其加入font字典中
+    {
+        NSMutableDictionary *fontDict = fonts ? [fonts mutableCopy] : [NSMutableDictionary dictionary];
+        // key refer to RNSVGFontData
+        self.kerning ? [fontDict setObject:self.kerning forKey:@"kerning"] : nil;
+        self.fontSize ? [fontDict setObject:self.fontSize ?:@"" forKey:@"fontSize"] : nil;
+        self.fontData ? [fontDict setObject:self.fontData forKey:@"fontData"] : nil;
+        self.fontStyle ? [fontDict setObject:self.fontStyle forKey:@"fontStyle"] : nil;
+        self.fontWeight ? [fontDict setObject:self.fontWeight forKey:@"fontWeight"] : nil;
+        self.fontFamily ? [fontDict setObject:self.fontFamily forKey:@"fontFamily"] : nil;
+        self.textAnchor ? [fontDict setObject:self.textAnchor forKey:@"textAnchor"] : nil;
+        self.wordSpacing ? [fontDict setObject:self.wordSpacing forKey:@"wordSpacing"] : nil;
+        self.letterSpacing ? [fontDict setObject:self.letterSpacing forKey:@"letterSpacing"]: nil;
+        self.textDecoration ? [fontDict setObject:self.textDecoration forKey:@"textDecoration"] : nil;
+        self.fontVariantLigatures ? [fontDict setObject:self.fontVariantLigatures forKey:@"fontVariantLigatures"] : nil;
+        fonts = fontDict.copy;
+    }
+    // --- 曲线救国end
+    
     [[self.textRoot getGlyphContext] pushContext:self
-                                            font:self.font
+                                            font:fonts
                                                x:self.positionX
                                                y:self.positionY
                                           deltaX:self.deltaX

@@ -11,7 +11,7 @@
 
 @implementation RNSVGMarkerManager
 
-HIPPY_EXPORT_MODULE()
+HIPPY_EXPORT_MODULE(SVGMarker)
 
 - (RNSVGMarker *)node
 {

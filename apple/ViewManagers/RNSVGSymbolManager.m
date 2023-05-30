@@ -14,7 +14,7 @@
 
 @implementation RNSVGSymbolManager
 
-HIPPY_EXPORT_MODULE()
+HIPPY_EXPORT_MODULE(Symbol)
 
 - (RNSVGRenderable *)node
 {

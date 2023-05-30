@@ -17,7 +17,7 @@
 
 @implementation RNSVGRenderableManager
 
-HIPPY_EXPORT_MODULE()
+HIPPY_EXPORT_MODULE(Renderable)
 
 - (RNSVGRenderable *)node
 {

@@ -12,7 +12,7 @@
 
 @implementation RNSVGGroupManager
 
-HIPPY_EXPORT_MODULE()
+HIPPY_EXPORT_MODULE(SVGGroup)
 
 - (RNSVGNode *)node
 {

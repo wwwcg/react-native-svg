@@ -31,6 +31,7 @@
         self.contentMode = UIViewContentModeRedraw;
 #endif
         rendered = false;
+        self.backgroundColor = [UIColor clearColor];
     }
     return self;
 }

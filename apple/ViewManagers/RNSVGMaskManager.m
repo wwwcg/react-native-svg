@@ -11,7 +11,7 @@
 
 @implementation RNSVGMaskManager
 
-HIPPY_EXPORT_MODULE()
+HIPPY_EXPORT_MODULE(SVGMask)
 
 - (RNSVGMask *)node
 {

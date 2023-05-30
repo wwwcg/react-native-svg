@@ -14,7 +14,7 @@
 
 @implementation RNSVGSvgViewManager
 
-HIPPY_EXPORT_MODULE()
+HIPPY_EXPORT_MODULE(Svg)
 
 - (RNSVGView *)view
 {

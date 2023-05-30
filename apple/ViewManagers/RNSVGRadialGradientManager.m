@@ -11,7 +11,7 @@
 
 @implementation RNSVGRadialGradientManager
 
-HIPPY_EXPORT_MODULE()
+HIPPY_EXPORT_MODULE(RadialGradient)
 
 - (RNSVGNode *)node
 {

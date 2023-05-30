@@ -180,5 +180,9 @@ HIPPY_ENUM_CONVERTER(RNSVGUnits, (@{
     return (CGGradientRef)CFAutorelease(gradient);
 }
 
++ (RNSVGTextAnchor)RNSVGTextAnchor:(NSString *)textAnchor {
+    return RNSVGTextAnchorFromString(textAnchor);
+}
+
 @end
 

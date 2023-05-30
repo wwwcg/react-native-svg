@@ -15,6 +15,7 @@
 #import "RNSVGUnits.h"
 #import "RNSVGLength.h"
 #import "RNSVGPathParser.h"
+#import "RNSVGTextProperties.h"
 
 @class RNSVGBrush;
 
@@ -30,5 +31,6 @@
 + (CGRect)RNSVGCGRect:(id)json offset:(NSUInteger)offset;
 + (RNSVGColor *)RNSVGColor:(id)json offset:(NSUInteger)offset;
 + (CGGradientRef)RNSVGCGGradient:(id)json;
++ (RNSVGTextAnchor)RNSVGTextAnchor:(NSString *)textAnchor;
 
 @end

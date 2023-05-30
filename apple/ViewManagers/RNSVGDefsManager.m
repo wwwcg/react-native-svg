@@ -11,7 +11,7 @@
 
 @implementation RNSVGDefsManager
 
-HIPPY_EXPORT_MODULE()
+HIPPY_EXPORT_MODULE(Defs)
 
 - (RNSVGDefs *)node
 {

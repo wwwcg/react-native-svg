@@ -139,7 +139,7 @@ static const NSUInteger kMatrixArrayLength = 4 * 4;
     return transform;
 }
 
-HIPPY_EXPORT_MODULE()
+HIPPY_EXPORT_MODULE(SVGNode)
 
 - (RNSVGNode *)node
 {

@@ -13,14 +13,13 @@
 
 @implementation RNSVGTextManager
 
-HIPPY_EXPORT_MODULE()
+HIPPY_EXPORT_MODULE(SVGText)
 
 - (RNSVGRenderable *)node
 {
   return [RNSVGText new];
 }
 
-HIPPY_EXPORT_VIEW_PROPERTY(textAnchor, RNSVGTextAnchor)
 HIPPY_CUSTOM_VIEW_PROPERTY(dx, id, RNSVGText)
 {
     view.deltaX = [HippyConvert RNSVGLengthArray:json];
@@ -72,28 +71,47 @@ HIPPY_CUSTOM_VIEW_PROPERTY(baselineShift, id, RNSVGText)
 HIPPY_EXPORT_VIEW_PROPERTY(lengthAdjust, NSString)
 HIPPY_EXPORT_VIEW_PROPERTY(alignmentBaseline, NSString)
 
-HIPPY_CUSTOM_VIEW_PROPERTY(fontSize, id, RNSVGText)
-{
-    if ([json isKindOfClass:[NSString class]]) {
-        NSString *stringValue = (NSString *)json;
-        view.font = @{ @"fontSize": stringValue };
-    } else {
-        NSNumber* number = (NSNumber*)json;
-        double num = [number doubleValue];
-        view.font = @{@"fontSize": [NSNumber numberWithDouble:num] };
-    }
-}
+//HIPPY_CUSTOM_VIEW_PROPERTY(fontSize, id, RNSVGText)
+//{
+//    if ([json isKindOfClass:[NSString class]]) {
+//        NSString *stringValue = (NSString *)json;
+//        view.font = @{ @"fontSize": stringValue };
+//    } else {
+//        NSNumber* number = (NSNumber*)json;
+//        double num = [number doubleValue];
+//        view.font = @{@"fontSize": [NSNumber numberWithDouble:num] };
+//    }
+//}
+//
+//HIPPY_CUSTOM_VIEW_PROPERTY(fontWeight, id, RNSVGText)
+//{
+//    if ([json isKindOfClass:[NSString class]]) {
+//        NSString *stringValue = (NSString *)json;
+//        view.font = @{ @"fontWeight": stringValue };
+//    } else {
+//        NSNumber* number = (NSNumber*)json;
+//        double num = [number doubleValue];
+//        view.font = @{@"fontWeight": [NSNumber numberWithDouble:num] };
+//    }
+//}
 
-HIPPY_CUSTOM_VIEW_PROPERTY(fontWeight, id, RNSVGText)
-{
-    if ([json isKindOfClass:[NSString class]]) {
-        NSString *stringValue = (NSString *)json;
-        view.font = @{ @"fontWeight": stringValue };
-    } else {
-        NSNumber* number = (NSNumber*)json;
-        double num = [number doubleValue];
-        view.font = @{@"fontWeight": [NSNumber numberWithDouble:num] };
-    }
-}
+#pragma mark -
+/// 设置文本样式的textAnchor属性
+///
+/// 说明：兼容hippy-react-svg前端的简略写法
+/// 原RNSVG是将部分文字样式合并到font字段一起设置，因此其iOS SDK无需增加该属性。
+HIPPY_EXPORT_VIEW_PROPERTY(kerning, id)
+HIPPY_EXPORT_VIEW_PROPERTY(fontSize, id)
+HIPPY_EXPORT_VIEW_PROPERTY(fontData, NSString)
+HIPPY_EXPORT_VIEW_PROPERTY(fontStyle, NSString)
+HIPPY_EXPORT_VIEW_PROPERTY(fontWeight, id)
+HIPPY_EXPORT_VIEW_PROPERTY(fontFamily, NSString)
+HIPPY_EXPORT_VIEW_PROPERTY(textAnchor, NSString)
+HIPPY_EXPORT_VIEW_PROPERTY(wordSpacing, id)
+HIPPY_EXPORT_VIEW_PROPERTY(letterSpacing, id)
+HIPPY_EXPORT_VIEW_PROPERTY(textDecoration, NSString)
+HIPPY_EXPORT_VIEW_PROPERTY(fontVariantLigatures, NSString)
+
+#pragma mark -
 
 @end

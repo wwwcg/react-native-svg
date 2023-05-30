@@ -13,7 +13,7 @@
 
 @implementation RNSVGRectManager
 
-HIPPY_EXPORT_MODULE()
+HIPPY_EXPORT_MODULE(Rect)
 
 - (RNSVGRenderable *)node
 {

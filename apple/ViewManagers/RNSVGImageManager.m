@@ -13,7 +13,7 @@
 
 @implementation RNSVGImageManager
 
-HIPPY_EXPORT_MODULE()
+HIPPY_EXPORT_MODULE(SVGImage)
 
 - (RNSVGRenderable *)node
 {

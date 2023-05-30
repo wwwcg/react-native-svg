@@ -13,7 +13,7 @@
 
 @implementation RNSVGEllipseManager
 
-HIPPY_EXPORT_MODULE()
+HIPPY_EXPORT_MODULE(Ellipse)
 
 - (RNSVGRenderable *)node
 {

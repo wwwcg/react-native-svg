@@ -13,7 +13,7 @@
 
 @implementation RNSVGCircleManager
 
-HIPPY_EXPORT_MODULE()
+HIPPY_EXPORT_MODULE(Circle)
 
 - (RNSVGRenderable *)node
 {

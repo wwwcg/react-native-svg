@@ -11,7 +11,7 @@
 
 @implementation RNSVGClipPathManager
 
-HIPPY_EXPORT_MODULE()
+HIPPY_EXPORT_MODULE(ClipPath)
 
 - (RNSVGNode *)node
 {
