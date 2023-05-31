@@ -36,6 +36,13 @@ HIPPY_ENUM_CONVERTER(RNSVGUnits, (@{
 
 + (RNSVGBrush *)RNSVGBrush:(id)json
 {
+    //troke={{color: 66666}}
+    //hippy前端写法如上，json是个NSDictionary, 增加兼容写法
+    if ([json isKindOfClass:NSDictionary.class]) {
+        NSDictionary *colorDict = [HippyConvert NSDictionary:json];
+        json = colorDict[@"color"];
+    }
+    
     if ([json isKindOfClass:[NSNumber class]]) {
         return [[RNSVGSolidColorBrush alloc] initWithNumber:json];
     }
